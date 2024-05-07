@@ -36,6 +36,6 @@ dependencies {
     implementation fileTree(include: ['*.aar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation project(":mylibrary")
-//    implementation("com.linji.base_cabinet:base_cabinet:1.0.2")
+//    compile("com.linji.base_cabinet:base_cabinet:1.0.2")
 //    compile 'com.linji.dewoaar:dewo_aar:1.0.0'
 }

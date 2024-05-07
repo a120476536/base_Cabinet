@@ -92,9 +92,9 @@ dependencies {
     implementation 'cn.jzvd:jiaozivideoplayer:7.0.4'
 
     implementation 'androidx.documentfile:documentfile:1.0.1'
-    api 'com.linji.orbbecaar:orbbec:1.0.0'
-    api 'com.linji.mcaar:mc:1.0.0'
-    api 'com.linji.dewoaar:dewo_aar:1.0.0'
+    compile 'com.linji.orbbecaar:orbbec:1.0.0'
+    compile 'com.linji.mcaar:mc:1.0.0'
+    compile 'com.linji.dewoaar:dewo_aar:1.0.0'
 }
 //group 'com.linji.base_cabinet'
 //version '1.0.1'
