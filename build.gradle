@@ -30,6 +30,17 @@ allprojects {
             allowInsecureProtocol true // 允许使用不安全的协议
         }
 
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            credentials {
+                username '662f2ed38ea3e0606846d0f0'
+                password ']iks(J3fCJcz'
+            }
+            url 'https://packages.aliyun.com/662f2eeaea478dc40fd74a92/maven/repo-iyjue'
+        }
+
     }
 }
 

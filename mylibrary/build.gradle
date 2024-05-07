@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'maven-publish'
 
@@ -32,6 +34,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
@@ -86,86 +92,30 @@ dependencies {
     implementation 'cn.jzvd:jiaozivideoplayer:7.0.4'
 
     implementation 'androidx.documentfile:documentfile:1.0.1'
-    implementation 'com.linji.orbbecaar:orbbec:1.0.0'
-    implementation 'com.linji.mcaar:mc:1.0.0'
-    implementation 'com.linji.dewoaar:dewo_aar:1.0.0'
+    api 'com.linji.orbbecaar:orbbec:1.0.0'
+    api 'com.linji.mcaar:mc:1.0.0'
+    api 'com.linji.dewoaar:dewo_aar:1.0.0'
 }
-//publishing {
-//    repositories {
-//        maven {
-//            url "https://jitpack.io"
-//        }
-//    }
-//    publications {
-//        aar(MavenPublication) {
-//            groupId 'com.github.a120476536'
-//            artifactId 'base_cabinet'
-//            version '1.0.0'
-//            from components.android
-//            afterEvaluate { artifact(tasks.getByName("dewodSDK-release"))}
-//        }
-//    }
-//}
-//group='com.github.a120476536'
-//version = '1.0.0'
-//// 定义一个列表来存储 AAR 文件的路径
-//def aarFiles = [
-//        '/Users/ljj/Documents/git-linji/base-cabinet/mylibrary/libs/dewodSDK-release.aar',
-//        '/Users/ljj/Documents/git-linji/base-cabinet/mylibrary/libs/mcSerialPort.aar',
-//        '/Users/ljj/Documents/git-linji/base-cabinet/mylibrary/libs/orbbec_module-debug.aar',
-//]
-//// 遍历 AAR 文件列表，并为每个文件配置发布
-//aarFiles.each { aarFile ->
-//    // 获取 AAR 文件名（不包括路径）
-//    def fileName = aarFile.substring(aarFile.lastIndexOf('/') + 1, aarFile.lastIndexOf('.'))
-//
-//    // 配置 Maven 发布插件
-//    publishing {
-//        publications {
-//            // 使用 AAR 文件名作为发布的名称
-//            "${fileName}"(MavenPublication) {
-//                // 定义发布的组、Artifact ID 和版本号
-//                groupId 'com.base_cabinet'
-//                artifactId fileName
-//                version '1.0.0'
-//                // 使用指定的 AAR 文件
-//                artifact(file(aarFile))
-//            }
-//        }
-//    }
-//}
-//
-//// 配置 Maven 仓库
-//repositories {
-//    maven {
-//        url "https://jitpack.io"
-//    }
-//}
-//group = 'com.github.a120476536'
-//version = '1.0.0'
-//
-//// 发布整个库
-//publishing {
-//    publications {
-//        aar(MavenPublication) {
-//            groupId 'com.github.a120476536'
-//            artifactId 'mylibrary'
-//            version '1.0.0'
-////            from components.java
-//            // 发布 libs 目录下的所有文件
-//            artifacts {
-//                // 选择 libs 目录下的所有文件
-//                fileTree(dir: 'libs') {
-//                    include('*')
-//                }
-//            }
-//        }
-//    }
-//
-//    // 发布到 Maven 仓库
-//    repositories {
-//        maven {
-//            url "https://jitpack.io"
-//        }
-//    }
-//}
+//group 'com.linji.base_cabinet'
+//version '1.0.1'
+//def artifactId = 'base_cabinet'
+
+publishing {
+    repositories {
+        maven {
+            url 'https://packages.aliyun.com/662f2eeaea478dc40fd74a92/maven/repo-iyjue'
+            credentials {
+                username '662f2ed38ea3e0606846d0f0'
+                password ']iks(J3fCJcz'
+            }
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+//            from components.java
+            groupId = "com.linji.base_cabinet"
+            artifactId = "base_cabinet"
+            version = "1.0.2"
+        }
+    }
+}
