@@ -1,7 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
+
 //group='com.gitee.fengchao159357'   //fc是你gitee上自己的名
-group='com.github.a120476536'   //fc是你gitee上自己的名
+
 android {
     compileSdkVersion 34
 
@@ -85,3 +87,55 @@ dependencies {
 
     implementation 'androidx.documentfile:documentfile:1.0.1'
 }
+group='com.github.a120476536'
+version = '1.0.0'
+// 定义一个列表来存储 AAR 文件的路径
+def aarFiles = [
+        '/Users/ljj/Documents/git-linji/base-cabinet/mylibrary/libs/dewodSDK-release.aar',
+        '/Users/ljj/Documents/git-linji/base-cabinet/mylibrary/libs/mcSerialPort.aar',
+        '/Users/ljj/Documents/git-linji/base-cabinet/mylibrary/libs/orbbec_module-debug.aar',
+]
+//publishing {
+//    repositories {
+//        maven {
+//            url "https://jitpack.io"
+//        }
+//    }
+//    publications {
+//        aar(MavenPublication) {
+//            groupId 'com.github.a120476536'
+//            artifactId 'base_cabinet'
+//            version '1.0.0'
+//            from components.android
+//            afterEvaluate { artifact(tasks.getByName("dewodSDK-release"))}
+//        }
+//    }
+//}
+// 遍历 AAR 文件列表，并为每个文件配置发布
+aarFiles.each { aarFile ->
+    // 获取 AAR 文件名（不包括路径）
+    def fileName = aarFile.substring(aarFile.lastIndexOf('/') + 1, aarFile.lastIndexOf('.'))
+
+    // 配置 Maven 发布插件
+    publishing {
+        publications {
+            // 使用 AAR 文件名作为发布的名称
+            "${fileName}"(MavenPublication) {
+                // 定义发布的组、Artifact ID 和版本号
+                groupId 'com.base_cabinet'
+                artifactId fileName
+                version '1.0.0'
+                // 使用指定的 AAR 文件
+                artifact(file(aarFile))
+            }
+        }
+    }
+}
+
+// 配置 Maven 仓库
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
