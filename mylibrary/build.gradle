@@ -5,7 +5,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'maven-publish'
 
 group='com.github.a120476536'   //fc是你gitee上自己的名
-version = "1.0.005"
+version = "1.0.006"
 android {
     compileSdkVersion 34
 
