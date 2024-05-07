@@ -22,10 +22,12 @@ allprojects {
         maven {
             url 'http://www.idescout.com/maven/repo/'
             name 'IDEScout, Inc.'
+            allowInsecureProtocol true // 允许使用不安全的协议
         }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         maven {
             url "http://maven.aliyun.com/nexus/content/repositories/releases/"
+            allowInsecureProtocol true // 允许使用不安全的协议
         }
 
     }
