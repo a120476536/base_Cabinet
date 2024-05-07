@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <com.linji.mylibrary.widget.BorderView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:border_cornerRadius="0dp"
+        app:border_strokeColor="#666666">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listView"
+            tools:listitem="@layout/dropdown_list_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#DADADA"
+            android:dividerHeight="1dp"/>
+    </com.linji.mylibrary.widget.BorderView>
+
+
+</LinearLayout>

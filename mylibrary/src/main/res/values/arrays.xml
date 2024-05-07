@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pwd_model">
+        <item>手机号+密码</item>
+        <item>箱号+密码</item>
+    </array>
+</resources>

@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+//group='com.gitee.fengchao159357'   //fc是你gitee上自己的名
+group='com.github.a120476536'   //fc是你gitee上自己的名
+android {
+    compileSdkVersion 34
+
+    defaultConfig {
+        minSdkVersion 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        ndk {
+            moduleName "facesdk"
+            ldLibs "log"
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir "libs"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.aar'], dir: 'libs')
+
+    api files('libs/FaceSDK.jar')
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.kyleduo.switchbutton:library:2.0.0'
+    implementation 'com.blankj:utilcode:1.30.6'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //图片选择
+    implementation 'io.github.lucksiege:pictureselector:v3.11.2'
+    // 图片压缩 (按需引入)
+    implementation 'io.github.lucksiege:compress:v3.11.2'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    // crash重启
+    implementation 'com.jakewharton:process-phoenix:2.0.0'
+    // excel导入到处
+    implementation 'org.apache.poi:poi:3.17'
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.4.0'
+    implementation 'com.trello:rxlifecycle:1.0'
+    implementation 'com.trello:rxlifecycle-components:1.0'
+
+    //阿里物联网平台
+    implementation 'com.aliyun.alink.linksdk:iot-linkkit:1.7.2'
+    implementation 'com.aliyun.alink.linksdk:public-channel-core:0.7.7.1'
+    implementation 'com.aliyun.alink.linksdk:iot-device-manager:1.7.2.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    //本地阿里云上传
+    implementation 'com.aliyun.dpa:oss-android-sdk:2.3.0'
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    //butterknife环刀
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+
+    implementation 'androidx.documentfile:documentfile:1.0.1'
+
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+
+    implementation 'cn.jzvd:jiaozivideoplayer:7.0.4'
+
+    implementation 'androidx.documentfile:documentfile:1.0.1'
+}

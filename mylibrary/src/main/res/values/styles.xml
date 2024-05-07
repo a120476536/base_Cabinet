@@ -1,0 +1,67 @@
+<resources>
+
+    <!-- 自定义对话框样式 -->
+    <style name="alert_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/dialog_load_bg</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <!--带边框，背景 ，渐变色背景 的TextView-->
+    <declare-styleable name="BorderTextView">
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="cornerRadius" format="dimension"/>
+        <attr name="strokeColor" format="color"/>
+        <attr name="followTextColor" format="boolean"/>
+        <attr name="solidColor" format="color"/>
+
+        <attr name="isGradient" format="boolean"/>
+        <attr name="solidStartColor" format="color"/>
+        <attr name="solidCenterColor" format="color"/>
+        <attr name="solidEndColor" format="color"/>
+        <attr name="solidangle" format="integer"/>
+    </declare-styleable>
+
+    <!--带边框，背景 ，渐变色背景 的TextView-->
+    <declare-styleable name="BorderView">
+        <attr name="border_strokeWidth" format="dimension"/>
+        <attr name="border_cornerRadius" format="dimension"/>
+        <attr name="border_strokeColor" format="color"/>
+        <attr name="border_solidColor" format="color"/>
+
+        <attr name="border_isGradient" format="boolean"/>
+        <attr name="border_solidStartColor" format="color"/>
+        <attr name="border_solidCenterColor" format="color"/>
+        <attr name="border_solidEndColor" format="color"/>
+        <attr name="border_solidangle" format="integer"/>
+    </declare-styleable>
+
+
+    <!-- Material 主题下拉头，下拉刷新属性 -->
+    <declare-styleable name="MaterialHeader">
+        <attr name="mhPrimaryColor" format="color" />
+        <attr name="mhShadowColor" format="color" />
+        <attr name="mhShadowRadius" format="dimension" />
+        <attr name="mhShowBezierWave" format="boolean" />
+    </declare-styleable>
+
+
+    <style name="SwitchButtonStyle">
+        <item name="kswBackDrawable">@drawable/switch_btn_back</item>
+        <item name="kswThumbDrawable">@drawable/switch_btn_thumb</item>
+        <item name="kswAnimationDuration">300</item>
+    </style>
+</resources>
