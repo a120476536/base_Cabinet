@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
 
     }
     dependencies {
@@ -40,6 +41,10 @@ allprojects {
             }
             url 'https://packages.aliyun.com/662f2eeaea478dc40fd74a92/maven/repo-iyjue'
         }
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenCentral()
 
     }
 }
