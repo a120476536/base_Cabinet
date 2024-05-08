@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-//apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'maven-publish'
 
 group='com.github.a120476536'   //fc是你gitee上自己的名
-version = "1.0.015"
+version = "1.0.016"
 android {
     compileSdkVersion 30
 
